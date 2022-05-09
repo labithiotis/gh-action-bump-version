@@ -187,9 +187,6 @@ const workspace = process.env.GITHUB_WORKSPACE;
     }
 
     const remoteRepo = `https://${process.env.GITHUB_ACTOR}:${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`;
-    const t = process.env.GITHUB_TOKEN1 || process.env.GITHUB_TOKEN || ''
-    console.log('a ' , process.env.GITHUB_ACTOR.slice(0,5))
-    console.log('g ' , t.slice(0,20))
     if (process.env['INPUT_SKIP-TAG'] !== 'true') {
       await runInWorkspace('git', ['tag', newVersion]);
       if (process.env['INPUT_SKIP-PUSH'] !== 'true') {
